@@ -1,0 +1,434 @@
+%%  Fortran Forum Latex commands
+
+\documentclass[10pt,letterpaper,twoside]{article}
+
+\usepackage{fullpage}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+
+%% 2018 37 April     1
+%% 2019 38 August    2
+%% 2020 39 December  3
+
+\fancyfoot[OR,EL]{ACM \textit{Fortran Forum}, April 2020, \textbf{39}, 1}
+\fancyfoot[C]{\small{\thepage}}
+
+\setlength\textheight{230mm}
+\setlength\textwidth{158mm}
+\setlength\footskip{16mm}
+
+\setcounter{page}{28}
+\setcounter{section}{3}
+\setlength\headheight{10pt}
+
+\renewcommand\headrule{}
+
+\makeatletter%
+
+\renewcommand\maketitle{%
+    \newpage
+    \null
+    \vskip 1em
+    \begin{center}
+    {\Large\sf\bfseries \@title \par}
+    \vspace*{6pt}
+    {\normalfont\normalsize \@author}
+    \end{center}}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\sf\large\bfseries}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\sf\normalsize\bfseries}}
+
+\begin{document}
+
+\title{Fortran Standard Activities}
+
+\maketitle
+
+\section{Organization of Standards Committees}
+
+\subsection{ISO, SC22 and WG5}
+
+The production and maintenance of International Standards in the field 
+of Information Technology is carried out by the International Organization 
+for Standardization (ISO) and the International Electrotechnical Commission 
+(IEC) through their Joint Technical Committee 1 (JTC1). Most of the 
+work of JTC1 is, however, delegated to one of 20 Sub-Committees (SCs) 
+which, in turn, normally delegate the detailed work to permanent Working 
+Groups (WGs).
+
+SC22 is the JTC1 Sub-Committee responsible for \textit{programming languages, 
+their environments and system software interfaces}, and carries out 
+most of its work through its Working Groups. WG5 is the Working Group 
+responsible for the development and maintenance of Fortran language 
+standards.
+
+WG5, like all other JTC1 Working Groups, consists of a Convenor and 
+one or more Project Editors, all appointed by the parent Sub-Committee 
+(SC22 in WG5's case), together with a number of individual members 
+who are nominated by their National Member Bodies. It is not possible 
+to apply directly to become an individual member of a Working Group 
+without the support of an appropriate Member Body.
+
+WG5 currently operates a two-tier development structure whereby the 
+Working Group itself determines the broad technical content of the 
+Standards and other formal documents that it is working on, but delegates 
+much of the detailed work to \textit{development bodies} who are charged 
+with assisting the Project Editor for a particular project to create 
+the actual text for the document. For the Fortran 95, Fortran 2003, 
+Fortran 2008 and Fortran 2018 Standards, the US Fortran Committee 
+(INCITS/PL22.3) was given the role of Primary Development Body. All 
+WG5 working documents are available on the WG5 Electronic Document 
+Archive.
+
+Their home page is:
+
+\begin{verbatim}
+https://wg5-fortran.org/
+\end{verbatim}
+
+\subsection{Upcoming Meetings} 
+
+Links to agendas, local arrangements, etc. appear as the meeting dates 
+approach.
+
+\begin{itemize}
+
+\item{The 2020, June 22-26, Minneapolis, Minnesota, USA, hosted by Bill Long, has been cancelled due to COVID-19. Details of the rescheduled meeting are given below.} 
+
+\item{2020, October 12-16, Las Vegas, Nevada, USA.}
+
+\item{2021, June 21-25, Manchester, UK. Host Nathan Sircombe}
+
+\end{itemize}
+
+Visit 
+
+\begin{verbatim}
+https://wg5-fortran.org/meetings.html
+\end{verbatim}
+
+for up to date information.
+
+\subsection{Officers}
+
+\begin{itemize}
+
+\item{WG5 Convenor: Steve Lionel (US)}
+
+\item{ISO/IEC 1539 Project Manager (formerly called Project Editor): Malcolm Cohen (UK)}
+
+\item{Corrigenda Editor: David Muxworthy (UK)}
+
+\end{itemize}
+
+
+John Reid (UK) was WG5 Convenor from 1999 through 2017. From 1995 
+until 1999, the Convenor of WG5 was Miles Ellis (UK). His predecessor 
+was Jeanne Martin (USA), who was Convenor from 1982 until 1994. Prior 
+to that Jeanne Adams (USA) was Convenor of WG5 and its predecessor, 
+the Fortran Experts Group, from the creation of the latter in 1978 
+until 1982.
+
+The editor of the Fortran 2003 Standard (ISO/IEC 1539-1:2004(E)) was 
+Richard Maine (USA).
+
+The editor of the Fortran 95 Standard (ISO/IEC 1539-1:1997) was Richard 
+Maine (USA).
+
+The editor of the Fortran 90 Standard (IS 1539:1991) was Lloyd Campbell 
+(USA) during most of its development and Mike Metcalf (CERN) during 
+the final stages.
+
+
+\subsection{Documents}
+
+Documents are available at
+
+\begin{verbatim}
+https://wg5-fortran.org/documents.html
+\end{verbatim}
+
+This is an index of all WG5 documents, with links to those that are 
+available in electronic form. They are in reverse order so that the 
+most recent appear first. Electronic versions exists for most documents from 1995 to the current day. N003 is the earliest, and is dated 1978.
+
+Where not otherwise indicated, papers were originated by the Convenor: 
+up to N1074, Jeanne Martin; N1075 to N1374, Miles Ellis.
+
+N001 to N099 were left free for pre-1985 documents and N100 to N199 
+for 1985-1986 but they were never allocated in detail.
+
+\subsection{Fortran 202x}
+
+Fortran 202x is the working title of the revision of the Fortran standard 
+after Fortran 2018. Previously it was referred to as Fortran 2020. 
+Fortran 2018 is the current standard. 
+
+This is the current development schedule (see N2135) for Fortran 202x. 
+See the Glossary for definitions of terms.
+
+\begin{itemize}
+
+\item{Started planning further revision 2017-06}
+
+\item{Choose issues that need attention 2018-06}
+
+\item{Preliminary choice of technical content 2019-08}
+
+\item{Final choice of technical content 2020-10}
+
+\item{CD constructed 2021-06}
+
+\item{CD ballot initiated 2021-07 }
+
+\end{itemize}
+
+\subsubsection{Selected Documents}
+
+\begin{itemize}
+
+\item{N2142 Fortran 2020 Feature Survey Results 2017-10 (Lionel)}
+
+\end{itemize}
+
+
+\subsection{PL22.3 - Programming Language Fortran}
+
+PL22.3 - Programming Language Fortran, (formerly J3) is the US Fortran 
+standards committee, a technical subcommittee of the International 
+Committee for Information Technology Standards (INCITS) formerly known 
+as the National Committee for Information Technology Standards (NCITS). 
+The INCITS address is
+
+\begin{verbatim}
+http://www.incits.org/
+\end{verbatim}
+
+PL22 is the committee for Programming Languages. Their address is
+
+\begin{verbatim}
+http://www.incits.org/committees/pl22
+\end{verbatim}
+
+and PL22.3
+
+\begin{verbatim}
+http://www.incits.org/committees/pl22.3
+\end{verbatim}
+
+is the Fortran committee. Current participants, taken from the PL22.3 
+site include
+
+\begin{itemize}
+
+\item{Bierman - Emeritus}
+
+\item{Brainerd - Emeritus} 
+
+\item{Clune - NASA}
+
+\item{Hendrickson - Emeritus} 
+
+\item{Hewlett Packard Enterprise - Bill Long}
+
+\item{Hirchert - Emeritus} 
+
+\item{IBM Corporation - Daniel Chen}
+
+\item{Intel Corporation - Lorri Menard}
+
+\item{Jet Propulsion Laboratory - Van Snyder}
+
+\item{Klimowicz - NVIDIA}
+
+\item{Lahey - Emeritus} 
+
+\item{Maine - Emeritus} 
+
+\item{Martin - Emeritus} 
+
+\item{Meissner - Emeritus} 
+
+\item{National Center for Atmospheric Research - Dan Nagle}
+
+\item{North - Emeritus} 
+
+\item{Oracle - Robert Corbett}
+
+\item{Smith - Emeritus}
+
+\item{The Numerical Algorithms Group Ltd - Malcolm Cohen}
+
+\item{United States Dept of Energy}
+
+\begin{itemize}
+
+\item{Lawrence Berkeley National Lab}
+
+\item{Los Alamos National Lab}
+
+\item{Sandia National Lab}
+
+\item{Oak Ridge National Lab}
+
+\end{itemize}
+
+\item{Wagener - Emeritus}
+
+\end{itemize}
+
+J3 developed the Fortran 66, Fortran 77, Fortran 90, Fortran 95, Fortran 
+2003, Fortran 2008 and Fortran 2018 standards. Working closely with ISO/IEC/JTC1/SC22/WG5 
+(see "WG5"), the international Fortran standards committee, J3 is 
+the primary development body for Fortran. Fortran 2018 was published 
+in 2018.
+
+J3 is currently working under WG5 direction to produce a new revision 
+of the Fortran standard, tentatively called Fortran 202x. This will 
+be a minor revision of Fortran 2018. The work plan and schedule are 
+available.
+
+J3 meetings, documents, and membership are open to anyone worldwide. 
+Meeting information and documents are available from this website; 
+membership information may be obtained from any committee member. 
+Any interested party can submit a paper for consideration at a J3 
+meeting by following the J3 committee guidelines.
+
+\subsubsection{PL22.3 Officers}
+
+There are officially only 3 officers. 
+
+\begin{itemize}
+
+\item{Chair - Dan Nagle}
+
+\item{Secretary - Lorri Menard}
+
+\item{Treasurer - Jon Steidl}
+
+\end{itemize}
+
+The following list is taken from the J3 site.
+
+\begin{itemize}
+
+\item{Voting Principals}
+
+\begin{itemize}
+
+\item{Bryce Adelstein-Lelbach, Lawrence Berkeley National Laboratory}
+
+\item{Daniel Chen, IBM Corp.}
+
+\item{Thomas Clune, NASA GSFC}
+
+\item{Robert Corbett, Robert Corbett (self)}
+
+\item{Thomas Knox Kernelyze, LLC}
+
+\item{Gary Klimowicz, Nvidia Corporation}
+
+\item{Steve Lionel, Steve Lionel (Self) WG5 Convenor}
+
+\item{William Long, HPE Inc.}
+
+\item{Lorri Menard, Intel Corporation}
+
+\item{Karla Morris, Sandia National Laboratories}
+
+\item{Dan Nagle, Chair J3, National Center for Atmospheric Research}
+
+\item{Craig E Rasmussen}
+
+\item{Van Snyder, Jet Propulsion Laboratory}
+
+\end{itemize}
+
+\item{Voting alternatives}
+
+\begin{itemize}
+
+\item{Malcolm Cohen, Craig Rasmussen}
+
+\item{Brian Friesen, Bryce Adelstein-Lebach}
+
+\item{Andrew Gontarek, William Long}
+
+\item{Henry Jin, Tom Clune}
+
+\item{Mark LeAir, Gary Klimowicz}
+
+\item{Kelvin Li, Daniel Chen}
+
+\item{Raghu Maddhipatla, Lorri Menard}
+
+\item{Divya Mangudi, Lorri Menard}
+
+\item{Toon Moene, Karla Morris}
+
+\item{John K. Reid, Dan Nagle}
+
+\item{Damian Rouson, Karla Morris}
+
+\item{Dr Anton Shterenlikht, William Long}
+
+\item{Jon Steidel, Lorri Menard}
+
+\item{Dr. John Wallin, Dan Nagle}
+
+\item{Rafik Zurob, Daniel Chen}
+
+\end{itemize}
+
+\item{J3 INCITS Advisory members}
+
+\begin{itemize}
+
+\item{Lynn Barra}
+
+\item{Deborah Spittle}
+
+\end{itemize}
+
+\item{J3 Liason}
+
+\begin{itemize}
+
+\item{Malcolm Cohen, WG5 Project Editor}
+
+\item{David T. Muxworthy, WG5/BSI}
+
+\item{Steve Lionel, WG5 Convenor}
+
+\item{Minoru Tanaka, WG5/Japan}
+
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection{INCITS Secretariat}
+
+Information Technology Industry Council, Secretariat, ITIC, Suite 
+200, 1250 Eye Street NW, Washington DC 20005, Tel: (202) 737-8888
+
+\subsubsection{PL22.3 Meetings}
+
+PL22.3 currently plans three meetings per year, scheduled for the 
+second week of February, June, and October. Meetings of J3 are open 
+to the public, but facilities are limited. If you would like to attend 
+a meeting, request further information from Dan Nagle.
+
+\end{document}
+
