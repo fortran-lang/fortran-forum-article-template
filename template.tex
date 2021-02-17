@@ -52,13 +52,12 @@
                                      {1.5ex \@plus .2ex}%
                                      {\sf\normalsize\bfseries}}
 
+\makeatother
+
 \begin{document}
 
 \title{$title$}
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$if(institute)$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
+\author{$for(author)$$author$$sep$ and $endfor$}
 
 \maketitle
 

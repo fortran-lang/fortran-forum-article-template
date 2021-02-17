@@ -1,16 +1,9 @@
 ---
 issue: April 2020, \textbf{39}, 1
 title: A New Template For Submissions to ACM Fortran Forum
-authors:
-  - name: Brad Richardson
-    orcid:
-    affiliation: 1
-  - name: Damian Rouson
-    orcid:
-    affiliation: 1
-affiliations:
- - name: Sourcery Institute
-   index: 1
+author:
+  - Brad Richardson
+  - Damian Rouson
 ...
 
 # Motivation
