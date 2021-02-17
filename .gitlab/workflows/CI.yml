@@ -1,0 +1,31 @@
+name: CI
+
+on: [push, pull_request]
+
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: sudo apt install pandoc
+
+    - name: Render Paper
+      run: pandoc --template=template.tex -o paper.pdf paper.md
+
+    - name: Save Paper
+      uses: actions/upload-artifact@v2
+      with:
+        name: Paper
+        path: paper.md
+        if-no-files-found: error
+
+    - name: Spell Check
+      run: aspell -M list < paper.md
