@@ -55,6 +55,10 @@
 \begin{document}
 
 \title{$title$}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$if(institute)$
+\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
 
 \maketitle
 
