@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: sudo apt install pandoc
+      run: sudo apt install pandoc texlive-latex-recommended texlive-latex-extra texlive-science
 
     - name: Render Paper
       run: pandoc --template=template.tex -o paper.pdf paper.md
@@ -24,8 +24,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Paper
-        path: paper.md
+        path: paper.pdf
         if-no-files-found: error
-
-    - name: Spell Check
-      run: aspell -M list < paper.md
