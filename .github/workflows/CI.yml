@@ -18,7 +18,7 @@ jobs:
       run: sudo apt install pandoc texlive-latex-recommended texlive-latex-extra texlive-science
 
     - name: Render Paper
-      run: pandoc --template=template.tex -o paper.pdf paper.md
+      run: pandoc -C --template=template.tex -o paper.pdf paper.md
 
     - name: Save Paper
       uses: actions/upload-artifact@v2
