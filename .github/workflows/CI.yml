@@ -15,7 +15,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: sudo apt install pandoc texlive-latex-recommended texlive-latex-extra texlive-science
+      run: |
+        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
+        wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
 
     - name: Render Paper
       run: pandoc -C --template=template.tex -o paper.pdf paper.md
