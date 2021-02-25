@@ -121,11 +121,17 @@ and rendered into \autoref{eq:boltzmann}, referred to by the sytanx `\autoref{eq
 
 # Submitting an Article
 
-* Fork the repository
-* Edit the existing files to write your article, using git to save your work
-* Contact us and give us access to your repository
-* Any review comments will be submitted as GitHub Issues
-* Once accepted, we can incorporate your article into the next issue
+The process of writing and submitting an article can now become much simpler.
+No longer will you need to battle with word processor template or fight with the difficulties of \LaTeX.
+Formatting is not something the author must worry about.
+Just write the content.
+
+To submit an article for publication, follow the instructions described in the previous section to write your article.
+Once your article is ready to review, contact the editors of the Journal at ???,
+and make sure that they have access to view the repository with your article.
+If you elect to have your article peer reviewed prior to publication, you will also need to grant access to the reviewers.
+Any review comments will be submitted as GitHub Issues.
+Once all review comments have been satisfactorily addressed, the editors will be able to include your article in the next issue of the journal.
 
 # Automated Checks
 
