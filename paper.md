@@ -8,9 +8,26 @@ author:
 
 # Motivation
 
-Lowering the barrier to entry for authors.
-A more transparent review process.
-Simplifying the publication procedure.
+A key factor in the success of a publication is attracting a steady stream of authors to submit articles.
+One impediment to this can be the difficulty of the process of writing and preparing an article for submission.
+It is the hope that by using a simpler format for article content,
+making use of practices and tools familiar to most programmers,
+and automating a significant portion of the authoring process - namely spell checking and formatting -
+we can lower the barrier to entry for authors.
+
+Another possible obstacle to authors can be the review process.
+ACM Fortran Forum has traditionally not been a peer reviewed journal,
+but the editor is exploring the possibility of having a peer reviewed option.
+The editor would prefer that the review process be open (public)
+as a way of encouraging reviewers and authors to be on good behavior.
+This also allows prospective new authors to see how the process works
+and not be turned off by fear of the unknown.
+
+Finally, by having much of the process automated and encouraging authors to utilize the template,
+it can alleviate some of the burden on the editors for producing new issues of the journal.
+This can help ensure a regular publication schedule, without which new authors might not be attracted.
+It can also ensure that the publication adheres to a consistent style and has a quality format,
+also something beneficial for attracting prospective authors.
 
 # The Template Format
 
