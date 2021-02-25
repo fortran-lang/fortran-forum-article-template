@@ -31,11 +31,20 @@ also something beneficial for attracting prospective authors.
 
 # The Template Format
 
-We chose [markdown] as the format for the template, as an approachable, yet powerful format.
+The article template uses [markdown] as the format.
+This was chosen as an approachable, yet powerful format.
+The syntax is very lightweight, making the content easily readable even unprocessed.
+This makes it easy to learn, and easy to write in.
 
-* Readable unprocessed
-* Supported by multiple tools
-* Convenient for version control
+Additionally, markdown is well supported by a large variety of tools,
+meaning authors will not have a difficult time using it with their favorite editors.
+It also means there are a large number of resources available for learning about it,
+and for helping to troubleshoot any issues that might be encountered.
+
+Also, because markdown is stored as plain text, it is convenient for version control systems.
+This makes tracking changes easy, and enables a process of collaboration familiar to our target authors: programmers.
+The authors of this article have had much success collaborating on projects
+using markdown and version control.
 
 # The Template Repository
 
