@@ -9,7 +9,7 @@ BIBLIOGRAPHY_PATH := $(RESOURCE_PATH)/$(BIBLIOGRAPHY)
 IMAGES ?= $(wildcard $(RESOURCE_PATH)/*.png) $(wildcard $(RESOURCE_PATH)/*.jpg)
 
 # Turn on table of contents
-PANDOC_FLAGS += --toc --resource-path=$(RESOURCE_PATH)
+PANDOC_FLAGS += --resource-path=$(RESOURCE_PATH)
 
 # Paper input files:
 TP_SRCS = $(wildcard $(DOC_DIR)/paper/part-*.md) \
