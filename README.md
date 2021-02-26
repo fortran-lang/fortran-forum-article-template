@@ -3,5 +3,5 @@
 Compile the example paper with the command:
 
 ```
-pandoc --template=template.tex -o paper.pdf paper.md
+pandoc --template=doc/template.tex -o paper.pdf doc/paper.md
 ```
