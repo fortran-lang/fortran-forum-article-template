@@ -14,17 +14,43 @@ When _Fortran Forum_, n\'ee _ForTec Forum_, published its inaugural issue, FORTR
 
 _Fortran Forum_ has published a mix of research articles, columns, and news with the most highly cited research articles garnering nearly 1,000 citations since publication [@numrich1998co].
 
-Lowering the barrier to entry for authors.
-A more transparent review process.
-Simplifying the publication procedure.
+A key factor in the success of a publication is attracting a steady stream of authors to submit articles.
+One impediment to this can be the difficulty of the process of writing and preparing an article for submission.
+It is the hope that by using a simpler format for article content,
+making use of practices and tools familiar to most programmers,
+and automating a significant portion of the authoring process - namely spell checking and formatting -
+we can lower the barrier to entry for authors.
+
+Another possible obstacle to authors can be the review process.
+ACM Fortran Forum has traditionally not been a peer reviewed journal,
+but the editor is exploring the possibility of having a peer reviewed option.
+The editor would prefer that the review process be open (public)
+as a way of encouraging reviewers and authors to be on good behavior.
+This also allows prospective new authors to see how the process works
+and not be turned off by fear of the unknown.
+
+Finally, by having much of the process automated and encouraging authors to utilize the template,
+it can alleviate some of the burden on the editors for producing new issues of the journal.
+This can help ensure a regular publication schedule, without which new authors might not be attracted.
+It can also ensure that the publication adheres to a consistent style and has a quality format,
+also something beneficial for attracting prospective authors.
 
 # The Template Format
 
-We chose [markdown] as the format for the template, as an approachable, yet powerful format.
+The article template uses [markdown] as the format.
+This was chosen as an approachable, yet powerful format.
+The syntax is very lightweight, making the content easily readable even unprocessed.
+This makes it easy to learn, and easy to write in.
 
-* Readable unprocessed
-* Supported by multiple tools
-* Convenient for version control
+Additionally, markdown is well supported by a large variety of tools,
+meaning authors will not have a difficult time using it with their favorite editors.
+It also means there are a large number of resources available for learning about it,
+and for helping to troubleshoot any issues that might be encountered.
+
+Also, because markdown is stored as plain text, it is convenient for version control systems.
+This makes tracking changes easy, and enables a process of collaboration familiar to our target authors: programmers.
+The authors of this article have had much success collaborating on projects
+using markdown and version control.
 
 # The Template Repository
 
@@ -127,11 +153,17 @@ and rendered into \autoref{eq:boltzmann}, referred to by the sytanx `\autoref{eq
 
 # Submitting an Article
 
-* Fork the repository
-* Edit the existing files to write your article, using git to save your work
-* Contact us and give us access to your repository
-* Any review comments will be submitted as GitHub Issues
-* Once accepted, we can incorporate your article into the next issue
+The process of writing and submitting an article can now become much simpler.
+No longer will you need to battle with word processor template or fight with the difficulties of \LaTeX.
+Formatting is not something the author must worry about.
+Just write the content.
+
+To submit an article for publication, follow the instructions described in the previous section to write your article.
+Once your article is ready to review, contact the editors of the Journal at ???,
+and make sure that they have access to view the repository with your article.
+If you elect to have your article peer reviewed prior to publication, you will also need to grant access to the reviewers.
+Any review comments will be submitted as GitHub Issues.
+Once all review comments have been satisfactorily addressed, the editors will be able to include your article in the next issue of the journal.
 
 # Automated Checks
 
