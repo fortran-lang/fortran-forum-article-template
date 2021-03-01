@@ -9,8 +9,8 @@ author:
 # Motivation
 
 As a newsletter dedicated to the world's oldest programming language, ACM SIGPLAN _Fortran Forum_ holds a unique place in the literature.
-For nearly forty years, _Fortran Forum_ has chronicled the language that brings the world its weather and climate predictions [@skamarock2008description,@danabasoglu2020community] and supports the design of power plants [@geelhood2011fraptran] and vehicles that traverse land, air, and space [@cifuentes2012using,@biedron2019fun3d].
-When _Fortran Forum_, n\'ee _ForTec Forum_, published its inaugural issue, FORTRAN was still spelled in upper case and was "the most widely used programming language" according to an article by founding Editor Loren Meissner [meissner1982fortran].
+For nearly forty years, _Fortran Forum_ has chronicled the language that brings the world its weather and climate predictions [@skamarock2008description;@danabasoglu2020community] and supports the design of power plants [@geelhood2011fraptran] and vehicles that traverse land, air, and space [@cifuentes2012using;@biedron2019fun3d].
+When _Fortran Forum_, n\'ee _ForTec Forum_, published its inaugural issue, FORTRAN was still spelled in upper case and was "the most widely used programming language" according to an article by founding Editor Loren Meissner [@meissner1982fortran].
 
 _Fortran Forum_ has published a mix of research articles, columns, and news with the most highly cited research articles garnering nearly 1,000 citations since publication [@numrich1998co].
 
@@ -38,7 +38,7 @@ We chose to store the template in a GitHub repository for the following reasons:
 
 Click the "Use This Template" button in the [article template repository] to create your own copy.
 You write your article in the provided template file (this file), using markdown format.
-You can also add additional references to the included `references.bib` file in bibtex format,
+You can also add additional references to the included `bibliography.bib` file in bibtex format,
 and then cite those references as demonstrated below.
 All of this editing can be done in a web browser via GitHub,
 but if you're familiar with git can be done in whatever method is most convenient for you.
@@ -57,13 +57,13 @@ this template supports some features also required for producing quality article
 ### Citations
 
 Invariably, any article will need to cite prior work.
-This is done by including an entry for the reference you would like to cite in the `references.bib` file.
+This is done by including an entry for the reference you would like to cite in the `bibliography.bib` file.
 Then, within the text of the article, citations are made using [rMarkdown] syntax,
 as illustrated below for quick reference.
 
-- `@author:2001`  ->  @author:2001
-- `[@author:2001]` -> [@author:2001]
-- `[@author1:2001; @author2:2001]` -> [@author1:2001; @author2:2001]
+- `@cifuentes2012using`  ->  @cifuentes2012using
+- `[@berna1997frapcon]` -> [@berna1997frapcon]
+- `[@biedron2019fun3d; @danabasoglu2020community]` -> [@biedron2019fun3d; @danabasoglu2020community]
 
 ### Figures With Captions and References
 
