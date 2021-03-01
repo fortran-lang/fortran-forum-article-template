@@ -110,7 +110,7 @@ One can use single dollar signs (`$`) to delimit inline mathematics.
 For example, `$e = m c^2$` will be rendered as $e = m c^2$.
 
 Double dollar signs can be used to make self-standing equations,
-as illustrated by the syntax bellow being rendered into the equation that follows.
+as illustrated by the syntax below being rendered into the equation that follows.
 
 ```
 $$

@@ -46,10 +46,10 @@ clean:
 
 # Spell checking, requires codespell. Install with pip3 or homebrew
 fix-spelling:
-	codespell --ignore-words our-dictionary.txt --write-changes --interactive 3 --skip .gitignore,bibliography.bib --check-hidden .
+	codespell --ignore-words our-dictionary.txt --write-changes --interactive 3 doc/paper
 
 check-spelling:
-	codespell --ignore-words our-dictionary.txt --skip .gitignore,bibliography.bib --check-hidden --count .
+	codespell --ignore-words our-dictionary.txt --count doc/paper
 
 aspell-check:
 	for f in $(PAPER_SRCS) ; do \

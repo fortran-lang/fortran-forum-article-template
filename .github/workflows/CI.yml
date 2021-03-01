@@ -28,3 +28,6 @@ jobs:
         name: Paper
         path: paper.pdf
         if-no-files-found: error
+
+    - name: Check Spelling
+      run: make check-spelling
