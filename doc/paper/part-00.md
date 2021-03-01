@@ -54,11 +54,18 @@ using markdown and version control.
 
 # The Template Repository
 
-We chose to store the template in a GitHub repository for the following reasons:
+The authors chose to store this template in a GitHub repository for several reasons.
+First, this allows the template to be publicly available and thus obtaining a copy is easy.
+In fact, by utilizing GitHub's Template Repository feature,
+getting started writing a new article with the template is practically as simple as clicking a button.
 
-* Publicly available and easy to get a copy
-* Easy for users to submit feedback
-* Automated checking with CI
+Next, storing the template as a GitHub repository makes it easy for users to submit feedback.
+Anyone can [open an issue] to report a bug, or suggest changes that should be made.
+Anyone can also contribute directly to improving the template by [submitting a pull request].
+
+Finally, GitHub provides convenient facilities for automation in a git repository.
+As described later in this article, we make significant use of this feature to check a variety of things.
+This helps to reduce the burden on both authors and the editors, as well as catch simple mistakes.
 
 # How the Template Works
 
@@ -216,6 +223,8 @@ See its documentation for the specifics of its use.
 This should help avoid the publication of source code and examples that contain errors.
 
 [markdown]: https://guides.github.com/features/mastering-markdown/
+[open an issue]: https://github.com/fortran-lang/fortran-forum-article-template/issues/new/choose
+[submitting a pull request]: https://github.com/fortran-lang/fortran-forum-article-template/compare
 [article template repository]: https://github.com/fortran-lang/fortran-forum-article-template
 [rMarkdown]: http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 [Fortran Package Manager]: https://github.com/fortran-lang/fpm
