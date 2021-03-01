@@ -1,6 +1,7 @@
 ---
 issue: August 2020, \textbf{39}, 1
 title: Whither Fortran Forum?
+firstpage: 1
 author:
   - Brad Richardson
   - Damian Rouson
