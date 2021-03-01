@@ -194,13 +194,26 @@ Once all review comments have been satisfactorily addressed, the editors will be
 
 # Automated Checks
 
-The repository that this template is stored in comes with some automated checks.
+The template repository comes with several automated checks in place.
+These checks are executed for any change that is pushed to the repository.
+The script that executes them is stored in the repository at `.github/workflows/CI.yml`.
+The script uses only open-source and easily available software,
+so the same commands can be used locally.
+The script can also be edited, if some reason an article has some different, specific requirements.
+Note however than any significant changes to the process of rendering the article to a pdf may present a barrier to having it published.
 
-* Compiles the paper, generating a pdf that you can download
-* Runs a spell checker on the paper
-* Attempts to compile any source code files included
+The first check, and of primary importance is that the paper is rendered to pdf and made available to download for preview.
+As noted earlier, this preview can be downloaded from the "Actions" tab of your repository on GitHub.
+This should dramatically reduce the chance of having articles submitted which the editors are unable to render for publication.
 
-These checks are automated via the CI script found in the `.github/workflows/CI.yml` file.
+Next, a spell checker is used to check the contents of the paper for spelling errors.
+Any misspelled words are reported.
+This should help find spelling errors earlier in the writing process, and help reduce the chances that any make it to publication.
+
+Finally, any Fortran source code will be compiled and possibly executed.
+The [Fortran Package Manager] (fpm) is used to alleviate the burden on authors of putting together their own build system.
+See its documentation for the specifics of its use.
+This should help avoid the publication of source code and examples that contain errors.
 
 [markdown]: https://guides.github.com/features/mastering-markdown/
 [article template repository]: https://github.com/fortran-lang/fortran-forum-article-template
