@@ -18,7 +18,7 @@ jobs:
       run: |
         sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
         wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
-        sudo pip install codespell
+        sudo pip3 install codespell
 
     - name: Render Paper
       run: make
