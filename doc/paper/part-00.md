@@ -151,6 +151,33 @@ and rendered into \autoref{eq:boltzmann}, referred to by the sytanx `\autoref{eq
 \left( f_1'f_2' - f_1f_2 \right)
 \end{equation}
 
+### Source Code
+
+In a journal about a programming language, one invariably needs to include some source code.
+You can write code inline by enclosing it in single back-ticks like \`code\` -> `code`.
+You can also write multi-line snippets of code directly in the document by including a line of three back-ticks before and after.
+The result looks something like the following.
+
+```
+x = y + z
+if (thing) then
+    call do_something()
+else
+    call do_other()
+end if
+```
+
+While the above methods work and are acceptable,
+we highly recommend writing your source code in separate files.
+The CI script will then compile and possibly run, any of your code to ensure it works.
+We use the [Fortran Package Manager] to do so.
+You can then include the file by having an empty code block (i.e. two lines of three back-ticks),
+but on the first line, after the back-ticks include syntax like `{include=src/library_s.f90}`.
+We use the external pandoc filter [`pandoc-include-code`], which also has options for including portions of the named file.
+
+```{include=src/library_s.f90}
+```
+
 # Submitting an Article
 
 The process of writing and submitting an article can now become much simpler.
@@ -178,3 +205,5 @@ These checks are automated via the CI script found in the `.github/workflows/CI.
 [markdown]: https://guides.github.com/features/mastering-markdown/
 [article template repository]: https://github.com/fortran-lang/fortran-forum-article-template
 [rMarkdown]: http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+[Fortran Package Manager]: https://github.com/fortran-lang/fpm
+[`pandoc-include-code`]: https://github.com/owickstrom/pandoc-include-code

@@ -14,10 +14,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Get Time
+      id: time
+      uses: nanzm/get-time-action@v1.0
+      with:
+        format: 'YYYY-MM'
+
+    - name: Setup cache for stack to speed up pandoc-include-code build
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: "/home/runner/.stack/"
+        key: ${{ steps.time.outputs.time }}
+
     - name: Install Dependencies
       run: |
         sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
         wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
+        git clone https://github.com/owickstrom/pandoc-include-code && cd pandoc-include-code && stack install && sudo cp /home/runner/.local/bin/pandoc-include-code /usr/local/bin && cd
         sudo pip3 install codespell
 
     - name: Render Paper
