@@ -6,16 +6,23 @@ DOC_DIR := $(strip $(DOC_DIR))
 RESOURCE_PATH := $(DOC_DIR)/resources
 BIBLIOGRAPHY := bibliography.bib
 BIBLIOGRAPHY_PATH := $(RESOURCE_PATH)/$(BIBLIOGRAPHY)
+TEMPLATE := template.tex
+TEMPLATE_PATH := $(RESOURCE_PATH)/$(TEMPLATE)
 IMAGES ?= $(wildcard $(RESOURCE_PATH)/*.png) $(wildcard $(RESOURCE_PATH)/*.jpg)
 
-# Turn on table of contents
+# Find figures and bibliography
 PANDOC_FLAGS += --resource-path=$(RESOURCE_PATH)
 
 # Paper input files:
-TP_SRCS = $(wildcard $(DOC_DIR)/paper/part-*.md) \
-          $(wildcard $(DOC_DIR)/paper/references.md)
+PAPER_SRCS = $(wildcard $(DOC_DIR)/paper/part-*.md) \
+             $(wildcard $(DOC_DIR)/paper/references.md)
 
-# Add flags to pandoc if a bibliography and/or template is to be used
+# Add flags to pandoc it template is to be used
+ifneq ($(strip $(TEMPLATE)), )
+  PANDOC_FLAGS += --template=$(TEMPLATE)
+endif
+
+# Add flags to pandoc if a bibliography is to be used
 ifneq ($(strip $(BIBLIOGRAPHY)), )
   PANDOC_FLAGS += -C --bibliography=$(BIBLIOGRAPHY)
 endif
@@ -29,10 +36,10 @@ all: paper.pdf
 .PHONY: all clean list-srcs fix-spelling check-spelling
 
 list-srcs:
-	@echo $(TP_SRCS)
+	@echo $(PAPER_SRCS)
 
-paper.docx paper.pdf: $(TP_SRCS) $(BIBLIOGRAPHY_PATH) $(IMAGES)
-	$(BUILDER) $(PANDOC_FLAGS) -o $@ $(TP_SRCS)
+paper.docx paper.pdf: $(PAPER_SRCS) $(TEMPLATE_PATH) $(BIBLIOGRAPHY_PATH) $(IMAGES)
+	$(BUILDER) $(PANDOC_FLAGS) -o $@ $(PAPER_SRCS)
 
 clean:
 	rm -rf *.pdf
@@ -45,6 +52,6 @@ check-spelling:
 	codespell --ignore-words our-dictionary.txt --skip .gitignore,bibliography.bib --check-hidden --count .
 
 aspell-check:
-	for f in $(TP_SRCS) ; do \
+	for f in $(PAPER_SRCS) ; do \
 	  aspell --mode=markdown --run-together --run-together-limit=2 --camel-case check $$f ; \
 	done

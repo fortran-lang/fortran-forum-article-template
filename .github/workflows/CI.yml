@@ -20,7 +20,7 @@ jobs:
         wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
 
     - name: Render Paper
-      run: pandoc -C --template=template.tex -o paper.pdf paper.md
+      run: make
 
     - name: Save Paper
       uses: actions/upload-artifact@v2
