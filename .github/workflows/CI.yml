@@ -53,3 +53,16 @@ jobs:
         fpm build
         if [ -d app ]; then fpm run; fi
         if [ -d test ]; then fpm test; fi
+
+    - name: Prepare for Deployment
+      run: |
+        mkdir -p public
+        mv paper.pdf public
+        cd public && tree -i -H '.' -L 1 --noreport --charset utf-8 -I "*.html" -T "Download a Copy" > index.html
+
+    - name: Deploy to GitHub Pages
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages
+        folder: public
