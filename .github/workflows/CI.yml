@@ -1,0 +1,68 @@
+name: CI
+
+on: [push, pull_request]
+
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Get Time
+      id: time
+      uses: nanzm/get-time-action@v1.0
+      with:
+        format: 'YYYY-MM'
+
+    - name: Setup cache for stack to speed up pandoc-include-code build
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: "/home/runner/.stack/"
+        key: ${{ steps.time.outputs.time }}
+
+    - name: Install Dependencies
+      run: |
+        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
+        wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
+        git clone https://github.com/owickstrom/pandoc-include-code && cd pandoc-include-code && stack install && sudo cp /home/runner/.local/bin/pandoc-include-code /usr/local/bin && cd
+        sudo pip3 install codespell
+        wget https://github.com/fortran-lang/fpm/releases/download/v0.1.3/fpm-0.1.3-linux-x86_64 && sudo cp fpm-0.1.3-linux-x86_64 /usr/local/bin/fpm && sudo chmod a+x /usr/local/bin/fpm
+
+    - name: Render Paper
+      run: make
+
+    - name: Save Paper
+      uses: actions/upload-artifact@v2
+      with:
+        name: Paper
+        path: paper.pdf
+        if-no-files-found: error
+
+    - name: Check Spelling
+      run: make check-spelling
+
+    - name: Compile and Run Code
+      run: |
+        fpm build
+        if [ -d app ]; then fpm run; fi
+        if [ -d test ]; then fpm test; fi
+
+    - name: Prepare for Deployment
+      run: |
+        mkdir -p public
+        mv paper.pdf public
+        cd public && tree -i -H '.' -L 1 --noreport --charset utf-8 -I "*.html" -T "Download a Copy" > index.html
+
+    - name: Deploy to GitHub Pages
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages
+        folder: public
