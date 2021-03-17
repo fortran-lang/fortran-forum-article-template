@@ -36,7 +36,7 @@ Building the paper
 
 The article uses GitHub-flavored Markdown with embedded LaTeX commands for equations and figures and BibTeX citations for generating a bibliography.
 This repository employs a CI script to automatically generate a Portable Document Format (PDF) file from the all Markdown files matching the `doc/paper/part-*.md` glob expression.
-The CI script [.github/workflows/CI.yml](.github/workflows/CI.yml) deploys the resulting PDF file to a **public** GitHub Pages web site with a URL of the form `https://username.github.io/project-name`.
+The CI script [.github/workflows/CI.yml](.github/workflows/CI.yml) deploys the resulting PDF file to a **public** GitHub Pages web site with a URL of the form [`https://username.github.io/project-name`](https://fortran-lang.github.io/fortran-forum-article-template/).
 To support this feature, a user must enable GitHub Pages for their fork of this repository.
 Users who prefer to prevent the public deployment of the PDF may do so by removing the `Prepare for Deployment` and `Deploy to GitHub Pages` blocks of code in the aforementioned CI script.
 We encourage those who are so inclined to make their PDF public to support open access to your work.
