@@ -2,79 +2,6 @@
 
 set -e # exit on error
 
-usage()
-{
-    echo "Fortran Package Manager Bootstrap Script"
-    echo ""
-    echo "USAGE:"
-    echo "./install.sh [--help | [--prefix=PREFIX] [--update[=REF]]"
-    echo "               [--no-openmp] [--static] [--haskell] ]"
-    echo ""
-    echo " --help             Display this help text"
-    echo " --prefix=PREFIX    Install binary in 'PREFIX/bin'"
-    echo "                    Default prefix='\$HOME/.local/bin'"
-    echo " --update[=REF]     Update repository from latest release tag"
-    echo "                    or from git reference REF if specified"
-    echo " --no-openmp        Don't build fpm with openmp support"
-    echo " --static           Statically link fpm executable"
-    echo "                     (implies --no-openmp)"
-    echo " --haskell          Only install Haskell fpm"
-    echo ""
-    echo " '--no-openmp' and '--static' do not affect the Haskell fpm"
-    echo " build."
-    echo ""
-}
-
-PREFIX="$HOME/.local"
-UPDATE=false
-OMP=true
-STATIC=false
-HASKELL_ONLY=false
-
-STACK_BIN_PATH="$HOME/.local/bin"
-REF=$(git describe --tag --abbrev=0)
-RELEASE_FLAGS="--flag -g --flag -fbacktrace --flag -O3"
-
-while [ "$1" != "" ]; do
-    PARAM=$(echo "$1" | awk -F= '{print $1}')
-    VALUE=$(echo "$1" | awk -F= '{print $2}')
-    case $PARAM in
-        -h | --help)
-            usage
-            exit
-            ;;
-        --prefix)
-            PREFIX=$VALUE
-            ;;
-        --update)
-            UPDATE=true
-            if [ "$VALUE" != "" ]; then
-              REF=$VALUE
-            fi
-            ;;
-        --no-openmp)
-            OMP=false
-            ;;
-        --static)
-            STATIC=true
-            OMP=false
-            ;;
-        --haskell)
-            HASKELL_ONLY=true
-            ;;
-        *)
-            echo "ERROR: unknown parameter \"$PARAM\""
-            usage
-            exit 1
-            ;;
-    esac
-    shift
-done
-
-set -u # error on use of undefined variable
-
-INSTALL_PATH="$PREFIX/bin"
-
 if command -v stack 1> /dev/null 2>&1 ; then
   echo "Found stack"
 else
@@ -89,43 +16,115 @@ else
   fi
 fi
 
-if [ -x "$INSTALL_PATH/fpm" ]; then
-  echo "Overwriting existing fpm installation in $INSTALL_PATH"
-fi
-
-if [ "$UPDATE" = true ]; then
-  git checkout "$REF"
-  if [ $? != 0 ]; then
-    echo "ERROR: Unable to checkout $REF."
+if command -v pandoc 1> /dev/null 2>&1 ; then
+  echo "Found pandoc"
+else
+  echo "pandoc not found."
+  echo "Installing pandoc"
+  stack install pandoc
+  if command -v pandoc 1> /dev/null 2>&1 ; then
+    echo "pandoc installation successful."
+  else
+    echo "ERROR: pandoc installation unsuccessful."
     exit 1
   fi
 fi
 
-cd bootstrap
-stack install
-
-if [ "$STACK_BIN_PATH" != "$INSTALL_PATH" ]; then
-  mv "$STACK_BIN_PATH/fpm" "$INSTALL_PATH/"
-fi
-
-if [ "$HASKELL_ONLY" = true ]; then
-  exit
-fi
-
-if [ "$STATIC" = true ]; then
-  RELEASE_FLAGS="$RELEASE_FLAGS --flag -static"
-fi
-
-if [ "$OMP" = true ]; then
-  RELEASE_FLAGS="$RELEASE_FLAGS --flag -fopenmp"
-fi
-
-cd ../fpm
-"$INSTALL_PATH/fpm" run $RELEASE_FLAGS --runner mv -- "$INSTALL_PATH/"
-
-if [ -x "$INSTALL_PATH/fpm" ]; then
-  echo "fpm installed successfully to $INSTALL_PATH"
+if command -v pandoc-include-code 1> /dev/null 2>&1 ; then
+  echo "Found pandoc-include-code"
 else
-  echo "ERROR: fpm installation unsuccessful: fpm not found in $INSTALL_PATH"
-  exit 1
+  echo "pandoc-include-code not found."
+  echo "Installing pandoc-include-code"
+  stack install pandoc-include-code
+  if command -v pandoc-include-code 1> /dev/null 2>&1 ; then
+    echo "pandoc-include-code installation successful."
+  else
+    echo "ERROR: pandoc-include-code installation unsuccessful."
+    exit 1
+  fi
+fi
+
+if command -v make 1> /dev/null 2>&1 ; then
+  echo "Found make"
+else
+  echo "make not found."
+  echo "Installing make"
+  if command -v apt 1> /dev/null 2>&1 ; then
+    sudo apt install make
+  elif command -v yum 1> /dev/null 2>&1 ; then
+    sudo yum install make
+  elif command -v dnf 1> /dev/null 2>&1 ; then
+    sudo dnf install make
+  elif command -v pacman 1> /dev/null 2>&1 ; then
+    sudo pacman -S make
+  elif command -v brew 1> /dev/null 2>&1 ; then
+    brew install make
+  fi
+  if command -v make 1> /dev/null 2>&1 ; then
+    echo "make installation successful."
+  else
+    echo "ERROR: make installation unsuccessful."
+    exit 1
+  fi
+fi
+
+if command -v codespell 1> /dev/null 2>&1 ; then
+  echo "Found codespell"
+else
+  echo "codespell not found."
+  echo "Installing codespell"
+  if command -v pip 1> /dev/null 2>&1 ;  then
+    pip install --user codespell
+  elif command -v apt 1> /dev/null 2>&1 ; then
+    sudo apt install codespell
+  elif command -v yum 1> /dev/null 2>&1 ; then
+    sudo yum install codespell
+  elif command -v dnf 1> /dev/null 2>&1 ; then
+    sudo dnf install codespell
+  elif command -v pacman 1> /dev/null 2>&1 ; then
+    sudo pacman -S codespell
+  elif command -v brew 1> /dev/null 2>&1 ; then
+    brew install codespell
+  fi
+  if command -v codespell 1> /dev/null 2>&1 ; then
+    echo "codespell installation successful."
+  else
+    echo "ERROR: codespell installation unsuccessful."
+    exit 1
+  fi
+fi
+
+if command -v pdflatex 1> /dev/null 2>&1 ; then
+  echo "Found LaTeX"
+else
+  echo "LaTeX not found."
+  echo "Installing LaTeX"
+  if command -v apt 1> /dev/null 2>&1 ; then
+    sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
+  elif command -v yum 1> /dev/null 2>&1 ; then
+    sudo yum install texlive-latex-recommended texlive-latex-extra texlive-science
+  elif command -v dnf 1> /dev/null 2>&1 ; then
+    sudo dnf install texlive-latex-recommended texlive-latex-extra texlive-science
+  elif command -v pacman 1> /dev/null 2>&1 ; then
+    sudo pacman -S texlive-latex-recommended texlive-latex-extra texlive-science
+  elif command -v brew 1> /dev/null 2>&1 ; then
+    brew install texlive-latex-recommended texlive-latex-extra texlive-science
+  fi
+  if command -v pdflatex 1> /dev/null 2>&1 ; then
+    echo "LaTeX installation successful."
+  else
+    echo "ERROR: LaTeX installation unsuccessful."
+    exit 1
+  fi
+fi
+
+if command -v fpm 1> /dev/null 2>&1 ; then
+  echo "Found fpm"
+else
+  echo "fpm not found."
+  echo "Installing fpm"
+  wget https://github.com/fortran-lang/fpm/archive/refs/tags/v0.2.0.tar.gz
+  tar -xf v0.2.0.tar.gz
+  cd v0.2.0
+  ./install.sh
 fi
