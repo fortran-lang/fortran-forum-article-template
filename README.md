@@ -1,7 +1,7 @@
 ACM SIGPLAN Fortran Forum Article Template
 ==========================================
 
-This repository provides a template for 
+This repository provides a template for
 
 1. Building an _ACM SIGPLAN Fortran Forum_ article in Portable Document Format (PDF).
 2. Automatically deploying the article PDF to a GitHub Pages web site.
@@ -25,9 +25,9 @@ We recommend using the latest versions of the prerequisite packages.  Where a mi
 4. [pandoc-include-code](https://github.com/owickstrom/pandoc-include-code) for embedding Fortran in LaTeX.
 5. [LaTeX](https://www.latex-project.org) document preparation software.
 6. [codespell](https://github.com/codespell-project/codespell) spell-checker.
+7. [make\_vegetables\_driver](https://gitlab.com/everythingfunctional/make_vegetables_driver) unit-test automation tool.
 
 We recommend installing `fpm` from a released executable file. If possible, install the remaining packages using a package manager.
-
 
 Building the paper
 ------------------
@@ -64,7 +64,7 @@ Build and test the example code as follows:
 ```
 fpm test
 ```
-If the test(s) pass(es), replace the Fortran source in [src](src) with your code. 
+If the test(s) pass(es), replace the Fortran source in [src](src) with your code.
 
 Writing your article
 --------------------
