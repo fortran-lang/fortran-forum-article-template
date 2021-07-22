@@ -56,7 +56,7 @@ Building and testing the code
 
 ### Automated building and testing of source code on GitHub
 
-This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in [src].  The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests in [tests].
+This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in the [src] subdirectory.  The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests that are located in the [tests] subdirectory.
 
 ### Building source code and testing on yor own platform
 
@@ -69,6 +69,10 @@ If the test(s) pass(es), replace the Fortran source in [src](src) with your code
 Writing your article
 --------------------
 
-The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.  To write your paper, edit or replace the [doc/paper/part-00.md](doc/paper/part-00.md) file and add any additional `part-*.md` files you write in the same subdirectory.
+The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.  To write your paper, edit or replace the [doc/paper/part-00.md] file and add any additional `part-*.md` files you write in the same subdirectory, incrementing the digits in the name as desired.
 
+[app/main.f90]: ./app/main.f90
+[src]: ./src 
 [Vegetables]: https://gitlab.com/everythingfunctional/vegetables
+[tests]: ./tests
+[doc/paper/part-00.md]: ./doc/paper/part-00.md
