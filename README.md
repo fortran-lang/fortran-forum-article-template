@@ -1,7 +1,7 @@
 ACM SIGPLAN Fortran Forum Article Template
 ==========================================
 
-This repository provides a template for 
+This repository provides a template for
 
 1. Building an _ACM SIGPLAN Fortran Forum_ article in Portable Document Format (PDF).
 2. Automatically deploying the article PDF to a GitHub Pages web site.
@@ -25,9 +25,9 @@ We recommend using the latest versions of the prerequisite packages.  Where a mi
 4. [pandoc-include-code](https://github.com/owickstrom/pandoc-include-code) for embedding Fortran in LaTeX.
 5. [LaTeX](https://www.latex-project.org) document preparation software.
 6. [codespell](https://github.com/codespell-project/codespell) spell-checker.
+7. [make\_vegetables\_driver](https://gitlab.com/everythingfunctional/make_vegetables_driver) unit-test automation tool.
 
 We recommend installing `fpm` from a released executable file. If possible, install the remaining packages using a package manager.
-
 
 Building the paper
 ------------------
@@ -56,7 +56,7 @@ Building and testing the code
 
 ### Automated building and testing of source code on GitHub
 
-This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in [src].  The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests in [tests].
+This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in the [src] subdirectory.  The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests that are located in the [tests] subdirectory.
 
 ### Building source code and testing on yor own platform
 
@@ -64,11 +64,15 @@ Build and test the example code as follows:
 ```
 fpm test
 ```
-If the test(s) pass(es), replace the Fortran source in [src](src) with your code. 
+If the test(s) pass(es), replace the Fortran source in [src](src) with your code.
 
 Writing your article
 --------------------
 
-The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.  To write your paper, edit or replace the [doc/paper/part-00.md](doc/paper/part-00.md) file and add any additional `part-*.md` files you write in the same subdirectory.
+The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.  To write your paper, edit or replace the [doc/paper/part-00.md] file and add any additional `part-*.md` files you write in the same subdirectory, incrementing the digits in the name as desired.
 
+[app/main.f90]: ./app/main.f90
+[src]: ./src 
 [Vegetables]: https://gitlab.com/everythingfunctional/vegetables
+[tests]: ./tests
+[doc/paper/part-00.md]: ./doc/paper/part-00.md

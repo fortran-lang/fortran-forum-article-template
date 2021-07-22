@@ -7,53 +7,56 @@ author:
   - Damian Rouson
 ...
 
-# Motivation
+# Introduction
 
-As a newsletter dedicated to the world's oldest programming language, ACM SIGPLAN _Fortran Forum_ holds a unique place in the literature.
+## Background and motivation
+
+_ACM SIGPLAN Fortran Forum_ holds a unique place in the literature as a newsletter dedicated to the world's oldest programming language.
 For nearly forty years, _Fortran Forum_ has chronicled the language that brings the world its weather and climate predictions [@skamarock2008description;@danabasoglu2020community] and supports the design of power plants [@geelhood2011fraptran] and vehicles that traverse land, air, and space [@cifuentes2012using;@biedron2019fun3d].
-When _Fortran Forum_, n\'ee _ForTec Forum_, published its inaugural issue, FORTRAN was still spelled in upper case and was "the most widely used programming language" according to an article by founding Editor Loren Meissner [@meissner1982fortran].
+When _Fortran Forum_ published its inaugural issue under the name _ForTec Forum_, FORTRAN was still spelled in upper case and was "the most widely used programming language" according to an article by founding Editor Loren Meissner [@meissner1982fortran].
+Since then, _Fortran Forum_ has published a mix of research articles, columns, and news with the most highly cited research articles garnering nearly 1,000 citations since publication [@numrich1998co].
 
-_Fortran Forum_ has published a mix of research articles, columns, and news with the most highly cited research articles garnering nearly 1,000 citations since publication [@numrich1998co].
+A successful publication venue must attracts a steady stream of article submissions.
+One hurdle to submitting lies in the the energy barrier imposed by context-switching between doing work and writing about work.
+In many writing workflows, the process of writing an article about programming bears little resemblance to the process of programming.
+Writing code and writing articles exercise different skill sets and employ different tools.
+Thus, an interest and ability to write code does not necessarily translate into an interest and ability to write articles about code.
 
-A key factor in the success of a publication is attracting a steady stream of authors to submit articles.
-One impediment to this can be the difficulty of the process of writing and preparing an article for submission.
-It is the hope that by using a simpler format for article content,
-making use of practices and tools familiar to most programmers,
-and automating a significant portion of the authoring process - namely spell checking and formatting -
-we can lower the barrier to entry for authors.
+Another obstacle lies in the article review process or the lack thereof.
+Some authors are less likely to submit if a venue requires peer review.
+Other authors are less likely to submit to a venue that does _not_ require peer review.
+Promotion and tenure at research universities, for example, necessitates producing a body of peer-reviewed publications.
+Hence, providing avenues for both sets of potential authors expands the authorship pool.
 
-Another possible obstacle to authors can be the review process.
-ACM Fortran Forum has traditionally not been a peer reviewed journal,
-but the editor is exploring the possibility of having a peer reviewed option.
-The editor would prefer that the review process be open (public)
-as a way of encouraging reviewers and authors to be on good behavior.
-This also allows prospective new authors to see how the process works
-and not be turned off by fear of the unknown.
+## Objectives
+With the git repository template that generated this article, we aim to address the aforementioned barriers by demonstrating an article development approach that
 
-Finally, by having much of the process automated and encouraging authors to utilize the template,
-it can alleviate some of the burden on the editors for producing new issues of the journal.
-This can help ensure a regular publication schedule, without which new authors might not be attracted.
-It can also ensure that the publication adheres to a consistent style and has a quality format,
-also something beneficial for attracting prospective authors.
+1. Leverages widely used software development tools and workflows so that article construction mirrors software writing, building, and testing;
+2. Employs these same tools and workflows to facilitate an _optional_ and _optionally open_ peer-review process; and
+3. Integrates the code development and article development into one seamless process in which the scripts that build and test the article also build and test the code described in the article.
 
-# The Template Format
+We hope this process lowers the barrier to article writing by making the process feel natural and familiar to programmers.
+One outcome of this process is a higher degree of automation of tedious activities such as spell-checking and document formatting.
 
-The article template uses [markdown] as the format.
-This was chosen as an approachable, yet powerful format.
-The syntax is very lightweight, making the content easily readable even unprocessed.
-This makes it easy to learn, and easy to write in.
+# Methodology
 
-Additionally, markdown is well supported by a large variety of tools,
+## The Article Template
+
+This article template is formatted in GitHub-flavored [Markdown] with embedded LaTeX, an approach that balances syntactical simplicity with powerful automation and rich rendering.
+Markdown provides a lightweight, memorable syntax for expressing document structure in a format that remains readable even in its raw, unprocessed form.
+This makes learning Markdown straightorward and writing it efficient.
+
+Additionally, Markdown is well supported by a large variety of tools,
 meaning authors will not have a difficult time using it with their favorite editors.
 It also means there are a large number of resources available for learning about it,
 and for helping to troubleshoot any issues that might be encountered.
 
-Also, because markdown is stored as plain text, it is convenient for version control systems.
+Also, because Markdown is stored as plain text, it is convenient for version control systems.
 This makes tracking changes easy, and enables a process of collaboration familiar to our target authors: programmers.
 The authors of this article have had much success collaborating on projects
-using markdown and version control.
+using Markdown and version control.
 
-# The Template Repository
+## The Template Repository
 
 The authors chose to store this template in a GitHub repository for several reasons.
 First, this allows the template to be publicly available and thus obtaining a copy is easy.
@@ -68,10 +71,10 @@ Finally, GitHub provides convenient facilities for automation in a git repositor
 As described later in this article, we make significant use of this feature to check a variety of things.
 This helps to reduce the burden on both authors and the editors, as well as catch simple mistakes.
 
-# How the Template Works
+## How the Template Works
 
 Click the "Use This Template" button in the [article template repository] to create your own copy.
-You write your article in the provided template file (this file), using markdown format.
+You write your article in the provided template file (this file), using Markdown format.
 You can also add additional references to the included `bibliography.bib` file in bibtex format,
 and then cite those references as demonstrated below.
 All of this editing can be done in a web browser via GitHub,
@@ -85,7 +88,7 @@ you can generate the same preview locally using the command found in the "Render
 
 ## Some Additional Features
 
-In addition to most of the usual features of markdown, such as headings, bulleted and numbered lists, and hyperlinks,
+In addition to most of the usual features of Markdown, such as headings, bulleted and numbered lists, and hyperlinks,
 this template supports some features also required for producing quality articles.
 
 ### Citations
@@ -102,7 +105,7 @@ as illustrated below for quick reference.
 ### Figures With Captions and References
 
 Quite frequently it is desirable to include a figure within an article, and refer to it within the text.
-This can be done similarly to regular markdown, but with some additional syntax as shown below.
+This can be done similarly to regular Markdown, but with some additional syntax as shown below.
 The results of this can then be seen in \autoref{fig:example}, with the reference to it generated with the syntax `\autoref{fig:example}`.
 
 ```
@@ -137,7 +140,7 @@ $$
 $$
 
 You can also use plain \LaTeX for equations, as illustrated by the syntax below,
-and rendered into \autoref{eq:boltzmann}, referred to by the sytanx `\autoref{eq:boltzmann}`.
+and rendered into \autoref{eq:boltzmann}, referred to by the syntax `\autoref{eq:boltzmann}`.
 
 ```
 \begin{equation}\label{eq:boltzmann}
@@ -218,12 +221,24 @@ Next, a spell checker is used to check the contents of the paper for spelling er
 Any misspelled words are reported.
 This should help find spelling errors earlier in the writing process, and help reduce the chances that any make it to publication.
 
+# Peer Review
+The editor would prefer that the review process be open (public)
+as a way of encouraging reviewers and authors to be on good behavior.
+This also allows prospective new authors to see how the process works
+and not be turned off by fear of the unknown.
+
+Finally, by having much of the process automated and encouraging authors to utilize the template,
+it can alleviate some of the burden on the editors for producing new issues of the journal.
+This can help ensure a regular publication schedule, without which new authors might not be attracted.
+It can also ensure that the publication adheres to a consistent style and has a quality format,
+also something beneficial for attracting prospective authors.
+
 Finally, any Fortran source code will be compiled and possibly executed.
 The [Fortran Package Manager] (fpm) is used to alleviate the burden on authors of putting together their own build system.
 See its documentation for the specifics of its use.
 This should help avoid the publication of source code and examples that contain errors.
 
-[markdown]: https://guides.github.com/features/mastering-markdown/
+[Markdown]: https://guides.github.com/features/mastering-markdown/
 [open an issue]: https://github.com/fortran-lang/fortran-forum-article-template/issues/new/choose
 [submitting a pull request]: https://github.com/fortran-lang/fortran-forum-article-template/compare
 [article template repository]: https://github.com/fortran-lang/fortran-forum-article-template
