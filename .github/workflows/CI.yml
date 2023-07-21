@@ -8,11 +8,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        fpm-version: [0.2.0]
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Get Time
       id: time
@@ -20,20 +19,14 @@ jobs:
       with:
         format: 'YYYY-MM'
 
-    - name: Setup cache for stack to speed up pandoc-include-code build
-      id: cache
-      uses: actions/cache@v2
+    - uses: fortran-lang/setup-fpm@v5
       with:
-        path: "/home/runner/.stack/"
-        key: ${{ steps.time.outputs.time }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Install Dependencies
       run: |
-        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
-        wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb && sudo dpkg -i pandoc-2.11.4-1-amd64.deb && rm -f pandoc-2.11.4-1-amd64.deb
-        git clone https://github.com/owickstrom/pandoc-include-code && cd pandoc-include-code && stack install && sudo cp /home/runner/.local/bin/pandoc-include-code /usr/local/bin && cd
+        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science pandoc
         sudo pip3 install codespell
-        wget https://github.com/fortran-lang/fpm/releases/download/v${{ matrix.fpm-version }}/fpm-${{ matrix.fpm-version }}-linux-x86_64 && sudo cp fpm-${{ matrix.fpm-version }}-linux-x86_64 /usr/local/bin/fpm && sudo chmod a+x /usr/local/bin/fpm
 
     - name: Render Paper
       run: make

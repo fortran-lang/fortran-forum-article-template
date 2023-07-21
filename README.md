@@ -1,7 +1,7 @@
 ACM SIGPLAN Fortran Forum Article Template
 ==========================================
 
-This repository provides a template for 
+This repository provides a template for
 
 1. Building an _ACM SIGPLAN Fortran Forum_ article in Portable Document Format (PDF).
 2. Automatically deploying the article PDF to a GitHub Pages web site.
@@ -13,18 +13,19 @@ Prerequisites
 
 ### Working on GitHub
 
-No prerequisites are required for writing and building your paper and source code on GitHub.  If no errors occur, the paper will be deployed to the web and the results of the continuous integration (CI) tests will be reported on GitHub.
+No prerequisites are required for writing and building your paper and source code on GitHub.
+If no errors occur, the paper will be deployed to the web and the results of the continuous integration (CI) tests will be reported on GitHub.
 
 ### Working on your own platform
 
-We recommend using the latest versions of the prerequisite packages.  Where a minimum version is known, we note it below.
+We recommend using the latest versions of the prerequisite packages.
+Where a minimum version is known, we note it below.
 
 1. Fortran Package Manager ([fpm](https://github.com/fortran-lang/fpm))
 2. GNU [make](https://www.gnu.org/software/make/)
 3. [pandoc](https://pandoc.org) 2.11 document format converter.
-4. [pandoc-include-code](https://github.com/owickstrom/pandoc-include-code) for embedding Fortran in LaTeX.
-5. [LaTeX](https://www.latex-project.org) document preparation software.
-6. [codespell](https://github.com/codespell-project/codespell) spell-checker.
+4. [LaTeX](https://www.latex-project.org) document preparation software.
+5. [codespell](https://github.com/codespell-project/codespell) spell-checker.
 
 We recommend installing `fpm` from a released executable file. If possible, install the remaining packages using a package manager.
 
@@ -56,7 +57,8 @@ Building and testing the code
 
 ### Automated building and testing of source code on GitHub
 
-This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in [src].  The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests in [tests].
+This repository's CI script builds the example [app/main.f90] program and links it to a static library built from the code in [src].
+The CI script runs the resulting main program and builds and runs the [Vegetables] unit tests in [tests].
 
 ### Building source code and testing on yor own platform
 
@@ -64,11 +66,12 @@ Build and test the example code as follows:
 ```
 fpm test
 ```
-If the test(s) pass(es), replace the Fortran source in [src](src) with your code. 
+If the test(s) pass(es), replace the Fortran source in [src](src) with your code.
 
 Writing your article
 --------------------
 
-The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.  To write your paper, edit or replace the [doc/paper/part-00.md](doc/paper/part-00.md) file and add any additional `part-*.md` files you write in the same subdirectory.
+The `paper.pdf` file generated from the unmodified version of this repository explains several Markdown and LaTeX features that you can use in writing your paper.
+To write your paper, edit or replace the [doc/paper/part-00.md](doc/paper/part-00.md) file and add any additional `part-*.md` files you write in the same subdirectory.
 
 [Vegetables]: https://gitlab.com/everythingfunctional/vegetables

@@ -179,12 +179,7 @@ While the above methods work and are acceptable,
 we highly recommend writing your source code in separate files.
 The CI script will then compile and possibly run, any of your code to ensure it works.
 We use the [Fortran Package Manager] to do so.
-You can then include the file by having an empty code block (i.e. two lines of three back-ticks),
-but on the first line, after the back-ticks include syntax like `{include=src/library_s.f90}`.
-We use the external pandoc filter [`pandoc-include-code`], which also has options for including portions of the named file.
-
-```{include=src/library_s.f90}
-```
+You should make sure to copy past the relevant source code into the codes blocks once it has been tested.
 
 # Submitting an Article
 

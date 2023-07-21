@@ -30,20 +30,6 @@ else
   fi
 fi
 
-if command -v pandoc-include-code 1> /dev/null 2>&1 ; then
-  echo "Found pandoc-include-code"
-else
-  echo "pandoc-include-code not found."
-  echo "Installing pandoc-include-code"
-  stack install pandoc-include-code
-  if command -v pandoc-include-code 1> /dev/null 2>&1 ; then
-    echo "pandoc-include-code installation successful."
-  else
-    echo "ERROR: pandoc-include-code installation unsuccessful."
-    exit 1
-  fi
-fi
-
 if command -v make 1> /dev/null 2>&1 ; then
   echo "Found make"
 else
@@ -123,8 +109,8 @@ if command -v fpm 1> /dev/null 2>&1 ; then
 else
   echo "fpm not found."
   echo "Installing fpm"
-  wget https://github.com/fortran-lang/fpm/archive/refs/tags/v0.2.0.tar.gz
-  tar -xf v0.2.0.tar.gz
-  cd v0.2.0
+  wget https://github.com/fortran-lang/fpm/archive/refs/tags/v0.9.0.tar.gz
+  tar -xf v0.9.0.tar.gz
+  cd v0.9.0
   ./install.sh
 fi
