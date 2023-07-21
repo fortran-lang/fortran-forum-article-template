@@ -25,13 +25,12 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt update
-        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science pandoc
+        sudo apt install texlive-latex-recommended texlive-latex-extra texlive-science
+        wget https://github.com/jgm/pandoc/releases/download/3.1.5/pandoc-3.1.5-1-amd64.deb && sudo dpkg -i pandoc-3.1.5-1-amd64.deb && rm -f pandoc-3.1.5-1-amd64.deb
         sudo pip3 install codespell
 
     - name: Render Paper
       run: |
-        pandoc --version
         make
 
     - name: Save Paper
