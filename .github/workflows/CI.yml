@@ -29,7 +29,9 @@ jobs:
         sudo pip3 install codespell
 
     - name: Render Paper
-      run: make
+      run: |
+        pandoc --version
+        make
 
     - name: Save Paper
       uses: actions/upload-artifact@v2
