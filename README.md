@@ -24,10 +24,12 @@ Where a minimum version is known, we note it below.
 1. Fortran Package Manager ([fpm](https://github.com/fortran-lang/fpm))
 2. GNU [make](https://www.gnu.org/software/make/)
 3. [pandoc](https://pandoc.org) 2.11 document format converter.
-4. [LaTeX](https://www.latex-project.org) document preparation software.
-5. [codespell](https://github.com/codespell-project/codespell) spell-checker.
+4. [py-pandoc-include-code](https://github.com/veneres/py-pandoc-include-code) for embedding Fortran in LaTeX.
+5. [LaTeX](https://www.latex-project.org) document preparation software.
+6. [codespell](https://github.com/codespell-project/codespell) spell-checker.
 
-We recommend installing `fpm` from a released executable file. If possible, install the remaining packages using a package manager.
+We recommend installing `fpm` from a released executable file.
+If possible, install the remaining packages using a package manager.
 
 
 Building the paper

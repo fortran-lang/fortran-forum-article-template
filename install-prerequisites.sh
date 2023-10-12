@@ -30,6 +30,20 @@ else
   fi
 fi
 
+if command -v py-pandoc-include-code 1> /dev/null 2>&1 ; then
+  echo "Found py-pandoc-include-code"
+else
+  echo "py-pandoc-include-code not found"
+  echo "Installing py-pandoc-include-code"
+  pip install git+https://github.com/veneres/py-pandoc-include-code.git
+  if command -v py-pandoc-include-code 1> /dev/null 2>&1 ; then
+    echo "py-pandoc-include-code installation successful."
+  else
+    echo "ERROR: py-pandoc-include-code installation unsuccessful."
+    exit 1
+  fi
+fi
+
 if command -v make 1> /dev/null 2>&1 ; then
   echo "Found make"
 else

@@ -13,6 +13,9 @@ IMAGES ?= $(wildcard $(RESOURCE_PATH)/*.png) $(wildcard $(RESOURCE_PATH)/*.jpg)
 # Find figures and bibliography
 PANDOC_FLAGS += --resource-path=$(RESOURCE_PATH)
 
+# Use pandoc filter for including source code
+PANDOC_FLAGS += --filter py-pandoc-include-code
+
 # Paper input files:
 PAPER_SRCS = $(wildcard $(DOC_DIR)/paper/part-*.md) \
              $(wildcard $(DOC_DIR)/paper/references.md)
